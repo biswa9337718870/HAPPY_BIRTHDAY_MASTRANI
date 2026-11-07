@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" class="locked">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Happy Birthday ✦</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;0,700;1,500;1,700&family=Caveat:wght@400;500;600;700&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Pinyon+Script&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="openingSplash" aria-hidden="false">
+    <div class="splash-inner">
+      <h1 class="splash-title">A Little Surprise...</h1>
+      <p class="splash-subtitle">Made with All My Love For You <span class="splash-heart">❤️</span></p>
+    </div>
+  </div>
+  <div id="gate"><i class="moon"></i>
+    <div id="lock">
+      <div id="heartPrompt" style="display: none; visibility: hidden; opacity: 0;">touch my heart to see inside</div>
+      <div id="memoryTunnel" aria-hidden="true"></div>
+      <div id="wel"></div>
+      <svg id="pad" viewBox="0 0 60 80" aria-hidden="true">
+        <defs>
+          <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#fff3dc" />
+            <stop offset="1" stop-color="#c98a54" />
+          </linearGradient>
+        </defs>
+        <path id="shk" d="M17 36V24a13 13 0 0 1 26 0v12" fill="none" stroke="url(#pg)" stroke-width="6"
+          stroke-linecap="round" />
+        <rect x="8" y="34" width="44" height="38" rx="7" fill="url(#pg)" />
+        <circle cx="30" cy="50" r="5" fill="#3a0f2c" />
+        <rect x="28" y="52" width="4" height="11" rx="2" fill="#3a0f2c" />
+      </svg>
+      <p class="k">FOR YOU, WITH LOVE</p>
+      <div class="lc">
+        <h2>Unlock my heart</h2>
+        <p>Enter our 8-digit secret code to open it</p>
+        <p id="hint"></p>
+        <div id="digits"></div>
+        <p id="gmsg"></p><button class="btn" id="enter">UNLOCK</button>
+      </div>
+    </div>
+  </div>
+  <button id="mus" aria-label="Music on or off"><span></span><span></span><span></span><span></span></button>
+  <div id="finaleSkyGlow" aria-hidden="true"></div>
+  <canvas id="sky"></canvas>
+  <div id="glow"></div>
+  <div id="bar"></div><canvas id="cv"></canvas>
+
+  <section id="hero">
+    <p class="k">FOR YOU</p>
+    <h1 id="name"></h1>
+    <p class="sub">happy birthday</p>
+    <p class="turn" id="turn"></p>
+    <div class="sc"></div>
+  </section>
+
+  <div id="chs"></div>
+
+  <div class="mq" id="mq1"></div>
+  <div class="mq f" id="mq2"></div>
+  <section id="heart">
+    <svg id="hs" viewBox="0 0 400 360" aria-hidden="true">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#f6e8d3" />
+          <stop offset="1" stop-color="#e05575" />
+        </linearGradient>
+      </defs>
+      <path id="hp"
+        d="M200 320 C40 210 20 120 90 70 C140 35 190 60 200 105 C210 60 260 35 310 70 C380 120 360 210 200 320 Z" />
+      <g id="hstars"></g>
+    </svg>
+    <h2 id="ht"></h2>
+  </section>
+
+  <section id="arches">
+    <div class="track" id="track"></div>
+  </section>
+
+  <section id="rl">
+    <h2>Why I love you</h2>
+    <div id="rr"></div>
+  </section>
+
+  <section id="env">
+    <div class="envw">
+      <div class="eb"></div>
+      <div class="paper"><b>For you</b><small>with all my love</small></div>
+      <div class="ef"></div>
+      <div class="flap"></div>
+      <div class="seal">❦</div>
+    </div>
+    <p id="envt">Keep scrolling to open it</p>
+  </section>
+
+  <section id="letter" class="letter-section">
+    <p class="k" style="margin-bottom:1.5rem">✦ A LETTER FROM MY HEART ✦</p>
+
+    <!-- Luxury Parchment Letter Paper -->
+    <div class="letter-paper" id="letterPaper">
+      <!-- 3D Floating Heart in top right corner (matches reference video) -->
+      <div class="letter-top-heart" aria-hidden="true">❤️</div>
+      <div class="letter-paper-inner">
+        <!-- Live continuous writing status & skip controls -->
+        <div class="letter-write-status" id="letterWriteStatus" style="display:none">
+          <span class="status-pen" id="statusPenText">✍️ Writing with love...</span>
+          <button class="btn-skip-write" id="btnSkipWrite" type="button">Fast Forward ⏩</button>
+        </div>
+
+        <!-- Letter Vintage Stamp & Header -->
+        <div class="letter-header">
+          <div class="letter-date">8th November, 2026</div>
+          <div class="letter-seal-badge">💌 Dipali & Babul</div>
+        </div>
+
+        <div class="letter-salutation">
+          <h2 class="letter-dear">❤️ Mora Priya Dipali ❤️</h2>
+          <p class="letter-sub-greeting">Good Morning, Mora Geli!</p>
+        </div>
+
+        <!-- The Handwritten Letter Content -->
+        <div class="letter-body" id="letterBody">
+          <!-- Paragraph 1 -->
+          <p class="letter-p">
+            Kebe bhabinathili ajana ru arambha heithiba eka kahani, dine mo jibana ra sabuthu sundara anubhaba palatijiba. College ra se lucha chhapa dekha, khelapadia re luchi luchi parasparaku dekhiva, picnic re unknown hei photo uthiba... se chhota chhota mulaakaat kebe ete bada smriti heigala, jana bi padilani. Se <span class="ink-hl">"Good Morning Bhai"</span>, <span class="ink-hl">"Good Afternoon Bhai"</span> ra pachhare luchithiba hasa, Maggie, chocolate, tiffin time ra se daudiba, au daily 7 ru 9 parjyanta video call re biti jauthiba samaya — sabu aji bi mora mana re semiti sateja achhi.
+          </p>
+
+          <!-- Poetry Stanza 1 -->
+          <div class="letter-poem">
+            <p>Ajana thilu dine, aji ete nijara heigalu,</p>
+            <p>Chhota chhota dekha re kete swapna sajaigalu,</p>
+            <p>Samaya badalila, dina badalila, badalila ama parichaya,</p>
+            <p>Kintu tora pain mora bhalapaiba re rahigala sehi maya. ❤️</p>
+          </div>
+
+          <!-- Paragraph 2 -->
+          <p class="letter-p">
+            Puri ra se samudra, beach re ama masti, gote plate re khaiba, photo shoot ra se pagalapanti, au tu gadi chalauthiba bele tote dhariki basithiba se moment — sabu aji bi mora akhire nachijaye. Tora deithiba se shirt, Odissi dance bele tora se laja mishaa hasa, ama first hug au tora se chhota chhota smile... e sabu smriti ku samaya kebe puruna kariparibani.
+          </p>
+
+          <!-- Poetry Stanza 2 -->
+          <div class="letter-poem">
+            <p>Samudra ra lahari jemiti barambara kulaku chhuin jae,</p>
+            <p>Tora smriti semiti mo mana ku pratyeka dina chhuin jae,</p>
+            <p>Dunia pain e sabu hue ta kebala kichhi puruna katha,</p>
+            <p>Kintu mora pain e sabu mo jibana ra sabuthu sundara gatha. 🥹❤️</p>
+          </div>
+
+          <!-- Paragraph 3 -->
+          <p class="letter-p">
+            Aji <span class="ink-hl">13th May ru 8th November — 179 days</span>, mane <strong>5 months and 26 days</strong> ama ei sundara journey ra. Ehi samaya bhitare kete hasa, kete abhimana, kete jhagara, kete manaiba au kete bhalapaiba jama heigala. Mora jibana ku asiba, mate bujhiba au mora bhalapaibaku accept kariba pain thank you, mora Geli.
+          </p>
+
+          <p class="letter-p">
+            Mu chahen nahi ama kahani kebala sundara dina gudikare simita rahu. Kebe rasta kathina hele ekathi chaliba, kebe mana kharap hele parasparaku bujhiba, au jete jhagara hele bi paraspara ra hata kebe chhadibani.
+          </p>
+
+          <!-- Poetry Stanza 3 -->
+          <div class="letter-poem">
+            <p>Khusi re tora hasa ra karana hebaku chahen,</p>
+            <p>Dukha re tora sabuthu bada sahara hebaku chahen,</p>
+            <p>Jibana ra pratyeka modare tora sathi hei rahibi,</p>
+            <p>Ehi janma nuhe, pratyeka janmare tote hi bhalapaibi. ❤️</p>
+          </div>
+
+          <!-- Paragraph 4 -->
+          <p class="letter-p">
+            Mora Dipali, mora Dipina, mora Mastrani, mora Geli, mora Bulbul... November mora pain kebala eka month nuhe, eha sehi manisha ra janma month, jie mora sadharana dina gudiku bi special karideichhi. Bhagaban nka pakhare mora etiki prarthana — tora sabu swapna pura heu, tora jibana khusire bhari rahu, au tora muhare sehi hasa sabubele rahu.
+          </p>
+
+          <!-- Poetry Stanza 4 -->
+          <div class="letter-poem">
+            <p>Birthday ta barsare thare asiba,</p>
+            <p>Kintu tora pain mora bhalapaiba pratyeka dina badhiba,</p>
+            <p>Aji tora janma dina ku celebrate karibaku mu ete excited,</p>
+            <p>Kintu tora saha sara jibana ra pratyeka birthday manaiba mora sabuthu bada khusi. ❤️</p>
+          </div>
+
+          <!-- Culmination -->
+          <div class="letter-climax">
+            <p class="letter-ily">I LOVE YOU SO MUCH, MY DIPALI! ❤️🥹</p>
+            <p class="letter-p">
+              Tora hasa mora khusi, tora khusi mora prarthana, au tora sath mora jibana ra sabuthu sundara upahara. Ehi bhalapaiba emiti hi rahu, ama kahani re au hajara hajara nua smriti jodi heu.
+            </p>
+          </div>
+
+          <!-- Signature Block -->
+          <div class="letter-signature-box">
+            <p class="sig-closing">Forever Yours,</p>
+            <p class="sig-loved">Mora Geli, Mora Dipali! ❤️🫂😘</p>
+            <p class="sig-sub">Happy Birthday, My Love! ❤️🧿</p>
+            <div class="sig-author-line">
+              <span class="sig-pen">✍️</span>
+              <span class="sig-name">Written by Biswaranjan Sahoo (Babul) ❤️</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════════
+             THE 💍 PROPOSAL SECTION CUT & LUXURY CARD
+             ══════════════════════════════════════════════════════════ -->
+        <div class="proposal-section-cut" id="proposalSectionCut">
+          <div class="cut-line"></div>
+          <div class="cut-emblem">
+            <span class="cut-star">✦</span>
+            <span class="cut-ring">💍</span>
+            <span class="cut-star">✦</span>
+          </div>
+          <div class="cut-line"></div>
+        </div>
+
+        <div class="proposal-card" id="proposalSection">
+          <div class="proposal-card-inner">
+            <div class="proposal-kicker">✦ A SPECIAL QUESTION FOR YOU ✦</div>
+            <div class="proposal-content">
+              <p class="proposal-quote">
+                “To name ta <strong>Dipali Sahoo</strong>, au name re kichhi change hebara nahi...<br>
+                ta ghara kebe change karuchhu? 🙈❤️”
+              </p>
+              <h3 class="proposal-ask">Will you marry me & be mine forever? 💍💖</h3>
+
+              <div class="proposal-actions" id="proposalActions">
+                <button class="btn-proposal btn-yes" id="btnProposalYes" type="button">
+                  <span>YES! Forever & Always! 💍💖</span>
+                </button>
+                <button class="btn-proposal btn-no" id="btnProposalNo" type="button">
+                  <span>NO 🙈</span>
+                </button>
+              </div>
+              <p class="proposal-tease-msg" id="proposalTeaseMsg" aria-live="polite"></p>
+            </div>
+
+            <!-- Celebration Reveal on YES -->
+            <div class="proposal-celebration" id="proposalCelebration" style="display:none">
+              <div class="celeb-ring">💍👰‍♀️💖</div>
+              <h3 class="celeb-title">SHE SAID YES! 🎉</h3>
+              <p class="celeb-sub">You just made me the happiest person in the universe! 🥹❤️</p>
+              <p class="celeb-desc">Forever and always, my Dipali... let's walk through eternity hand in hand. 👫✨</p>
+              <button class="btn-goto-cake" id="btnGotoCake" type="button">
+                <span>LET'S CUT THE CAKE! 🎂🎉</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="gift">
+    <h2>One last thing</h2>
+    <button class="btn" id="open">OPEN YOUR GIFT</button>
+    <div id="cake"><span>🎂</span><button id="flame" aria-label="Blow out the candle">🔥</button></div>
+    <p id="cakeMsg"></p>
+  </section>
+
+  <section id="musicTracks" class="music-section">
+    <p class="music-kicker">✦ OUR SPECIAL SOUNDTRACK ✦</p>
+    <h2>Melodies For You</h2>
+    <p class="music-subtitle">Every song carries a piece of my heart. Tap any CD to play our memories 🎵</p>
+
+    <div class="playlist-container">
+      <!-- Track 1 (YouTube: 07QykryvZtc) -->
+      <div class="track-card" data-src="song1.mp3">
+        <div class="track-cd-wrap">
+          <div class="track-cd-disc">
+            <div class="cd-center-art">
+              <img src="song1_cover.jpg" alt="Love is Crazy" loading="lazy">
+            </div>
+            <div class="cd-spindle-hole"></div>
+          </div>
+        </div>
+        <div class="track-details">
+          <div class="track-top-row">
+            <div class="track-meta">
+              <div class="track-tag-row">
+                <span class="track-num-badge">TRACK 01</span>
+              </div>
+              <h3 class="track-title">Love is Crazy</h3>
+              <p class="track-credits">
+                <span class="track-singer">Singer: Subhashree Jena & Ashish Pradhan</span>
+                <span class="track-dot">•</span>
+                <span class="track-movie">Movie: Mantra Muugdha</span>
+              </p>
+              <p class="track-feeling">“Every beat of this song reminds me of the day I fell for you ❤️”</p>
+            </div>
+            <div class="track-corner-controls">
+              <a href="https://youtu.be/07QykryvZtc?si=lkA86McHsPqX-X0X" target="_blank" rel="noopener" class="track-yt-btn" title="Watch official video on YouTube">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <span>YouTube</span>
+              </a>
+              <button class="track-play-btn" aria-label="Play Love is Crazy">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="track-progress-row">
+            <div class="track-bar-wrap">
+              <div class="track-progress-bar"></div>
+            </div>
+            <div class="track-time">
+              <span class="curr-time">0:00</span> / <span class="total-time">3:51</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Track 2 (YouTube: jK-AFu0KYZY) -->
+      <div class="track-card" data-src="song2.mp3">
+        <div class="track-cd-wrap">
+          <div class="track-cd-disc">
+            <div class="cd-center-art">
+              <img src="song2_cover.jpg" alt="Mahama" loading="lazy">
+            </div>
+            <div class="cd-spindle-hole"></div>
+          </div>
+        </div>
+        <div class="track-details">
+          <div class="track-top-row">
+            <div class="track-meta">
+              <div class="track-tag-row">
+                <span class="track-num-badge">TRACK 02</span>
+              </div>
+              <h3 class="track-title">Mahama</h3>
+              <p class="track-credits">
+                <span class="track-singer">Singer: Kuldeep Pattnaik & Ananya Sritam Nanda</span>
+                <span class="track-dot">•</span>
+                <span class="track-movie">Movie: Jadi</span>
+              </p>
+              <p class="track-feeling">“Whenever I hear this melody, your beautiful smile is all I see ✨”</p>
+            </div>
+            <div class="track-corner-controls">
+              <a href="https://youtu.be/jK-AFu0KYZY?si=QpxDDb8CUhFX32-T" target="_blank" rel="noopener" class="track-yt-btn" title="Watch official video on YouTube">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <span>YouTube</span>
+              </a>
+              <button class="track-play-btn" aria-label="Play Mahama">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="track-progress-row">
+            <div class="track-bar-wrap">
+              <div class="track-progress-bar"></div>
+            </div>
+            <div class="track-time">
+              <span class="curr-time">0:00</span> / <span class="total-time">4:55</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Track 3 (YouTube: KTUohb-1rJk) -->
+      <div class="track-card" data-src="song5.mp3">
+        <div class="track-cd-wrap">
+          <div class="track-cd-disc">
+            <div class="cd-center-art">
+              <img src="song5_cover.jpg" alt="Kaise Ab Kahein" loading="lazy">
+            </div>
+            <div class="cd-spindle-hole"></div>
+          </div>
+        </div>
+        <div class="track-details">
+          <div class="track-top-row">
+            <div class="track-meta">
+              <div class="track-tag-row">
+                <span class="track-num-badge">TRACK 03</span>
+              </div>
+              <h3 class="track-title">Kaise Ab Kahein</h3>
+              <p class="track-credits">
+                <span class="track-singer">Singer: Aasa Singh & Hansika Pareek</span>
+                <span class="track-dot">•</span>
+                <span class="track-movie">Series: Gutar Gu (Amazon miniTV)</span>
+              </p>
+              <p class="track-feeling">“Words fall short to tell you how deeply you mean to my heart 💕”</p>
+            </div>
+            <div class="track-corner-controls">
+              <a href="https://youtu.be/KTUohb-1rJk?si=F1h6xJhx1eJGl8fD" target="_blank" rel="noopener" class="track-yt-btn" title="Watch official video on YouTube">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <span>YouTube</span>
+              </a>
+              <button class="track-play-btn" aria-label="Play Kaise Ab Kahein">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="track-progress-row">
+            <div class="track-bar-wrap">
+              <div class="track-progress-bar"></div>
+            </div>
+            <div class="track-time">
+              <span class="curr-time">0:00</span> / <span class="total-time">2:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Track 4 (YouTube: 7OGSeZP0sc8) -->
+      <div class="track-card" data-src="song4.mp3">
+        <div class="track-cd-wrap">
+          <div class="track-cd-disc">
+            <div class="cd-center-art">
+              <img src="song4_cover.jpg" alt="Ishq De Fanniyar" loading="lazy">
+            </div>
+            <div class="cd-spindle-hole"></div>
+          </div>
+        </div>
+        <div class="track-details">
+          <div class="track-top-row">
+            <div class="track-meta">
+              <div class="track-tag-row">
+                <span class="track-num-badge">TRACK 04</span>
+              </div>
+              <h3 class="track-title">Ishq De Fanniyar</h3>
+              <p class="track-credits">
+                <span class="track-singer">Singer: Jyotica Tangri</span>
+                <span class="track-dot">•</span>
+                <span class="track-movie">Movie: Fukrey Returns</span>
+              </p>
+              <p class="track-feeling">“Ishq de fanniyar lad gaye ve... every moment with you feels like pure magic 💖”</p>
+            </div>
+            <div class="track-corner-controls">
+              <a href="https://youtu.be/7OGSeZP0sc8?si=6baZ7hlVHpeQiwdI" target="_blank" rel="noopener" class="track-yt-btn" title="Watch official video on YouTube">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <span>YouTube</span>
+              </a>
+              <button class="track-play-btn" aria-label="Play Ishq De Fanniyar">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="track-progress-row">
+            <div class="track-bar-wrap">
+              <div class="track-progress-bar"></div>
+            </div>
+            <div class="track-time">
+              <span class="curr-time">0:00</span> / <span class="total-time">1:23</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Track 5 (YouTube: BcSejVIxB0E) -->
+      <div class="track-card" data-src="song5_ishq_hai.mp3">
+        <div class="track-cd-wrap">
+          <div class="track-cd-disc">
+            <div class="cd-center-art">
+              <img src="song5_ishq_hai_cover.jpg" alt="Ishq Hai" loading="lazy">
+            </div>
+            <div class="cd-spindle-hole"></div>
+          </div>
+        </div>
+        <div class="track-details">
+          <div class="track-top-row">
+            <div class="track-meta">
+              <div class="track-tag-row">
+                <span class="track-num-badge">TRACK 05</span>
+              </div>
+              <h3 class="track-title">Ishq Hai</h3>
+              <p class="track-credits">
+                <span class="track-singer">Music: Anurag Saikia</span>
+                <span class="track-dot">•</span>
+                <span class="track-movie">Series: Mismatched Season 3</span>
+              </p>
+              <p class="track-feeling">“Ishq hai toh ishq hai... loving you is the easiest and most beautiful thing in the world 💫”</p>
+            </div>
+            <div class="track-corner-controls">
+              <a href="https://youtu.be/BcSejVIxB0E?si=d375WKcZuL4QafLG" target="_blank" rel="noopener" class="track-yt-btn" title="Watch official video on YouTube">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <span>YouTube</span>
+              </a>
+              <button class="track-play-btn" aria-label="Play Ishq Hai">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="track-progress-row">
+            <div class="track-bar-wrap">
+              <div class="track-progress-bar"></div>
+            </div>
+            <div class="track-time">
+              <span class="curr-time">0:00</span> / <span class="total-time">1:01</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fin">
+    <canvas id="fw"></canvas>
+    <h2 id="finT"></h2>
+    <p style="color:var(--soft)">Tap anywhere for fireworks</p>
+    <button class="btn" id="replay">REPLAY</button>
+  </section>
+
+  <!-- Custom Light Mouse Pointer (Main Point + Following Point) -->
+  <div class="custom-cursor-dot" id="cursorDot" aria-hidden="true">
+    <div class="cursor-dot-inner"></div>
+  </div>
+  <div class="custom-cursor-ring" id="cursorRing" aria-hidden="true">
+    <div class="cursor-ring-inner"></div>
+  </div>
+
+  <!-- Fullscreen Photo Lightbox Modal -->
+  <div id="photoLightbox" class="photo-lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-container">
+      <button class="lightbox-close-btn" id="lightboxClose" aria-label="Close fullscreen photo">✕</button>
+      <div class="lightbox-frame">
+        <img id="lightboxImg" class="lightbox-img" src="" alt="Enlarged photo">
+      </div>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+      <p class="lightbox-hint">Tap anywhere to close</p>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="script.js" defer></script>
+</body>
+
+</html>
