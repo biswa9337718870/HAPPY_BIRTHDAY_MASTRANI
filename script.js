@@ -631,7 +631,7 @@
     const gs = document.createElement('i'); gs.className = 'gs';
     gs.style.boxShadow = Array.from({ length: 90 }, () => `${(Math.random() * 100).toFixed(1)}vw ${(Math.random() * 100).toFixed(1)}vh 0 ${Math.random() < .2 ? 1 : 0}px rgba(246,232,211,${(.3 + Math.random() * .7).toFixed(2)})`).join(',');
     $('#gate').prepend(gs);
-    $('#digits').innerHTML = '<input inputmode="numeric" maxlength="1" autocomplete="off" placeholder=" " aria-label="digit">'.repeat(8);
+    $('#digits').innerHTML = '<input inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="off" placeholder=" " aria-label="digit">'.repeat(8);
     const ins = $$('#digits input'); let opened = false;
     ins.forEach((el, i) => {
       el.addEventListener('input', () => { el.value = el.value.replace(/\D/g, ''); if (el.value && ins[i + 1]) ins[i + 1].focus(); });
@@ -1858,3 +1858,32 @@
         }
       });
     })();
+
+/* ════════════════════════════════════════════════════════════
+   GLOBAL TEXT SELECTION LOCK & GESTURE PROTECTION
+   ════════════════════════════════════════════════════════════ */
+(function initTextSelectionLock() {
+  // Prevent text selection initiation everywhere except inputs & textareas
+  document.addEventListener('selectstart', e => {
+    if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable)) {
+      return;
+    }
+    e.preventDefault();
+  }, false);
+
+  // Prevent accidental dragging of text, links, or images
+  document.addEventListener('dragstart', e => {
+    if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
+      return;
+    }
+    e.preventDefault();
+  }, false);
+
+  // Prevent long-press native callouts on mobile for non-inputs
+  document.addEventListener('contextmenu', e => {
+    if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
+      return;
+    }
+    e.preventDefault();
+  }, false);
+})();
